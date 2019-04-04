@@ -11,4 +11,5 @@
     <string name="password_error">Please enter a correct password</string>
     <string name="full_name_error">Please enter your full name</string>
     <string name="input_valid">Input is valid!</string>
+    <string name="hello"><font color='@colors/moneybox_grey'>Hello </font></string>
 </resources>

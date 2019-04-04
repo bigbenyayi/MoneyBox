@@ -3,6 +3,7 @@ package com.example.minimoneybox;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class LoginActivityJava extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_java);
         setupViews();
+
     }
 
     @Override
@@ -40,6 +42,7 @@ public class LoginActivityJava extends AppCompatActivity {
         super.onStart();
 
         pigAnimation.setMinAndMaxFrame(0, 109);
+        pigAnimation.loop(false);
         pigAnimation.playAnimation();
 
         pigAnimation.addAnimatorListener(new AnimatorListenerAdapter() {
@@ -67,20 +70,26 @@ public class LoginActivityJava extends AppCompatActivity {
             public void onClick(View v) {
                 if (allFieldsValid()) {
                     Toast.makeText(LoginActivityJava.this, getString(R.string.input_valid), Toast.LENGTH_SHORT).show();
+                    Intent myIntent = new Intent(LoginActivityJava.this, UserAccountActivity.class);
+                    myIntent.putExtra("name", nameEditText.getText().toString());
+                    startActivity(myIntent);
+
                 }
             }
         });
     }
 
     private boolean allFieldsValid() {
-        boolean allValid = false;
+        boolean emailValid = false;
+        boolean passwordValid = false;
+        boolean nameValid = false;
 
         String EMAIL_REGEX = "[^@]+@[^.]+\\..+";
         String NAME_REGEX = "[a-zA-Z]{6,30}";
         String PASSWORD_REGEX = "^(?=.*[0-9])(?=.*[A-Z]).{10,50}$";
 
         if (Pattern.matches(EMAIL_REGEX, emailEditText.getText().toString())) {
-            allValid = true;
+            emailValid = true;
             emailTIL.setError("");
             emailTIL.setHint("Email");
         } else {
@@ -89,7 +98,7 @@ public class LoginActivityJava extends AppCompatActivity {
         }
 
         if (Pattern.matches(PASSWORD_REGEX, passwordEditText.getText().toString())) {
-            allValid = true;
+            passwordValid = true;
             passwordTIL.setError("");
             passwordTIL.setHint(getString(R.string.prompt_password));
         } else {
@@ -98,14 +107,14 @@ public class LoginActivityJava extends AppCompatActivity {
         }
 
         if (Pattern.matches(NAME_REGEX, nameEditText.getText().toString()) || nameEditText.getText().toString().equals("")) {
-            allValid = true;
+            nameValid = true;
             nameTIL.setError("");
             nameTIL.setHint(getString(R.string.prompt_full_name));
         } else {
             nameTIL.setError(getString(R.string.full_name_error));
             nameTIL.setHint("");
         }
-        return allValid;
+        return emailValid && passwordValid && nameValid;
     }
 
 //        val firstAnim = 0 to 109;

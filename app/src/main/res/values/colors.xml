@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@color/white</color>
     <color name="colorPrimaryDark">#546270</color>
-    <color name="colorAccent">#49bfbd</color>
     <color name="white">#ffffff</color>
     <color name="light_grey">#dde0e2</color>
+    <color name="colorPrimary">#60bcbb</color>
+    <color name="colorAccent">#ea6a69</color>
+    <color name="moneybox_grey">#516272</color>
 
 </resources>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IndividualAccount">
+
+
+    <TextView
+        android:id="@+id/accountNameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:textAlignment="center"
+        android:text="General Investment Account"
+        android:textColor="@color/colorAccent"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/isaCV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/accountNameTV"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        android:layout_marginBottom="96dp"
+        app:contentPadding="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/planValueTitleTV"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="32dp"
+                android:text="Plan Value:"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/planValueValueTV"
+                android:layout_width="wrap_content"
+                android:layout_height="72dp"
+                android:layout_below="@+id/planValueTitleTV"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="£4500"
+                android:textColor="@color/colorPrimary"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/moneyBoxTitleTV"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_below="@+id/planValueValueTV"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="32dp"
+                android:text="Moneybox:"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/moneyBoxValueTV"
+                android:layout_width="wrap_content"
+                android:layout_height="72dp"
+                android:layout_below="@+id/moneyBoxTitleTV"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="£1825"
+                android:textColor="@color/colorAccent"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/addMoneyButton"
+                style="@style/Widget.Button.Blue.Rounded"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="32dp"
+                android:layout_centerHorizontal="true"
+                android:text="Add £10"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>
