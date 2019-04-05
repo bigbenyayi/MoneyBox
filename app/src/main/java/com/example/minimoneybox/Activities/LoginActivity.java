@@ -8,8 +8,10 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.minimoneybox.Api.Api;
@@ -43,6 +45,9 @@ public class LoginActivity extends AppCompatActivity {
     TextInputLayout emailTIL;
     TextInputLayout passwordTIL;
     TextInputLayout nameTIL;
+
+    //ProgressBar
+    ProgressBar progressBar;
 
     /////////////// Variables \\\\\\\\\\\\\\\\
     String bearerToken;
@@ -83,9 +88,12 @@ public class LoginActivity extends AppCompatActivity {
         emailTIL = findViewById(R.id.til_email);
         passwordTIL = findViewById(R.id.til_password);
         nameTIL = findViewById(R.id.til_name);
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.INVISIBLE);
 
         signInButton.setOnClickListener(v -> {
             if (allFieldsValid()) {
+                progressBar.setVisibility(View.VISIBLE);
                 Retrofit retrofit = new Retrofit.Builder().baseUrl(Api.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
                 Api api = retrofit.create(Api.class);
                 Call<SessionResponse> call1 = api.postLoginDetails(new BearerRequest(emailEditText.getText().toString(), passwordEditText.getText().toString(), "ANYTHING"));
@@ -102,12 +110,18 @@ public class LoginActivity extends AppCompatActivity {
 
                             Log.d("bearer", response.body().getSession().getBearerToken());
 
-                            SharedPreferences mPrefs = getSharedPreferences( "shared_prefs", MODE_PRIVATE);
+                            SharedPreferences mPrefs = getSharedPreferences("shared_prefs", MODE_PRIVATE);
                             mPrefs.edit().putString("bearer", response.body().getSession().getBearerToken()).apply();
                             bearerToken = response.body().getSession().getBearerToken();
 
-
+                            progressBar.setVisibility(View.INVISIBLE);
                             startActivity(myIntent);
+                        } else {
+                            progressBar.setVisibility(View.INVISIBLE);
+                            emailTIL.setError("Email is not valid");
+                            emailTIL.setHint("");
+                            passwordEditText.setText("");
+                            nameEditText.setText("");
                         }
                     }
 
