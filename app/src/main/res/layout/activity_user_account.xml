@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserAccountActivity">
+    tools:context=".Activities.UserAccountActivity">
 
 
     <TextView
@@ -24,7 +24,7 @@
         android:layout_below="@+id/accountNameTV"
         android:layout_centerHorizontal="true"
         android:layout_margin="26dp"
-        android:text="Total Plan Value: 7000£"
+        android:text="Loading..."
         android:textColor="@color/colorAccent"
         android:textSize="25sp" />
 
@@ -40,7 +40,9 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/isaCV"
             style="@style/cardViewGeneralStyle"
-            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="0"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
             app:contentPadding="10dp">
@@ -71,19 +73,19 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/planValueTitleTV"
+                        android:id="@+id/isaPlanValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/isaTitle"
-                        android:text="Plan Value: "
+                        android:text="Plan Value: 0£"
                         android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/isaMoneyBox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/planValueTitleTV"
-                        android:text="MoneyBox: "
+                        android:layout_below="@+id/isaPlanValue"
+                        android:text="MoneyBox: 0£"
                         android:textSize="18sp" />
                 </RelativeLayout>
             </RelativeLayout>
@@ -94,7 +96,7 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/giaCV"
             style="@style/cardViewGeneralStyle"
-            android:layout_weight="1"
+            android:layout_weight="0"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
             app:contentPadding="10dp">
@@ -129,7 +131,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/giaTitle"
-                        android:text="Plan Value: "
+                        android:text="Plan Value: 0£"
                         android:textSize="18sp" />
 
                     <TextView
@@ -138,7 +140,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/giaPlanValue"
 
-                        android:text="MoneyBox: "
+                        android:text="MoneyBox: 0£"
                         android:textSize="18sp" />
                 </RelativeLayout>
             </RelativeLayout>
@@ -149,7 +151,7 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/lisaCV"
             style="@style/cardViewGeneralStyle"
-            android:layout_weight="1"
+            android:layout_weight="0"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
             app:contentPadding="10dp">
@@ -184,7 +186,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/lisaTitle"
-                        android:text="Plan Value: "
+                        android:text="Plan Value: 0£"
                         android:textSize="18sp" />
 
                     <TextView
@@ -192,7 +194,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/lisaPlanValue"
-                        android:text="MoneyBox: "
+                        android:text="MoneyBox: 0£"
                         android:textSize="18sp" />
                 </RelativeLayout>
             </RelativeLayout>
@@ -203,7 +205,7 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/pensionCV"
             style="@style/cardViewGeneralStyle"
-            android:layout_weight="1"
+            android:layout_weight="0"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
             app:contentPadding="10dp">
@@ -238,7 +240,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/pensionTitle"
-                        android:text="Plan Value: "
+                        android:text="Plan Value: 0£"
                         android:textSize="18sp" />
 
                     <TextView
@@ -246,7 +248,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/pensionPlanValue"
-                        android:text="MoneyBox: "
+                        android:text="MoneyBox: 0£"
                         android:textSize="18sp" />
                 </RelativeLayout>
             </RelativeLayout>
